@@ -5,16 +5,13 @@ const mongoose = require('mongoose');
 // VARIABLES
 const PORT = process.env.PORT || 5000;
 const app = express();
-const router = require('./routers/router');
+const bookRouter = require('./modules/routers/book.router');
 
 // app uses (static and parser)
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 // app uses router
-app.use('/router', router);
-
-// Require in our Mongoose Scehma
-const Book = require('./modules/models/book.schema');
+app.use('/book', bookRouter);
 
 // START MONGO CONNECTION VIA MONGOOSE
 // Connection between server and database
