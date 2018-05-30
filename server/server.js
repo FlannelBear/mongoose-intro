@@ -10,6 +10,11 @@ const bookRouter = require('./modules/routers/book.router');
 // app uses (static and parser)
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
+
+// THIS IS IMPORTANT FOR COMMUNICATING PROPERLY WITH THE DATABASE!!!!!!!!!!!!!
+app.use(bodyParser.json()); // DONT FORGET THIS FUCKER!!!!!!!!!!!!!
+// LOOK UP, SEE THAT? YOU NEED THAT DUMBY!!!!!!!!!!!
+
 // app uses router
 app.use('/book', bookRouter);
 
